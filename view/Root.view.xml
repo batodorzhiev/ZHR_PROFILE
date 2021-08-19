@@ -1,0 +1,114 @@
+<mvc:View controllerName="ru.rosneft.flp.zEmployeeProfile.controller.Root" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns="sap.m">
+	<!-- Организационные данные -->
+	<Dialog title="Профиль работника" contentWidth="500px" stretch="{device>/system/phone}">
+		<content>
+			<Panel expandable="true" class="sapUiTinyMarginTop sapUiTinyMarginBottom" expanded="true" width="auto" backgroundDesign="Solid">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Организационные данные"/>
+					</Toolbar>
+				</headerToolbar>
+				<List items="{ZHR_FIO_ORGEH_DATA_SRV>/Orgehs}" showSeparators="None">
+					<CustomListItem>
+						<VBox class="sapUiTinyMarginBottom sapUiTinyMarginTop">
+							<Label text="{ZHR_FIO_ORGEH_DATA_SRV>OrgType}" design="Bold"/>
+							<Text text="{ZHR_FIO_ORGEH_DATA_SRV>OrgTxt}, {ZHR_FIO_ORGEH_DATA_SRV>OrgPTxt}"/>
+							<HBox class="sapUiTinyMarginTop sapUiTinyMarginBottom">
+								<Label text="Руководитель:" labelFor="txtBoss" design="Bold" class="sapUiTinyMarginEnd"/>
+								<Text id="txtBoss" text="{ZHR_FIO_ORGEH_DATA_SRV>OrgMan}"/>
+							</HBox>
+						</VBox>
+					</CustomListItem>
+				</List>
+			</Panel>
+			<!-- Контактные данные -->
+			<Panel expandable="true" class="sapUiTinyMarginTop sapUiTinyMarginBottom" expanded="false" width="auto" backgroundDesign="Solid">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Контактные данные"/>
+					</Toolbar>
+				</headerToolbar>
+				<List items="{path:'ZHR_FIO_CONTACT_DATA_SRV>/Contacts'}" showSeparators="None">
+					<CustomListItem>
+						<VBox>
+							<HBox>
+								<Label text="{ZHR_FIO_CONTACT_DATA_SRV>ContactText}:" design="Bold" class="sapUiTinyMarginEnd sapUiTinyMarginBottom"/>
+								<Text text="{ZHR_FIO_CONTACT_DATA_SRV>ContactValue}"/>
+							</HBox>
+						</VBox>
+					</CustomListItem>
+				</List>
+			</Panel>
+			<!-- Адресные данные -->
+			<Panel expandable="true" class="sapUiTinyMarginTop sapUiTinyMarginBottom" expanded="false" width="auto" backgroundDesign="Solid">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Адресные данные"/>
+					</Toolbar>
+				</headerToolbar>
+				<List items="{path:'ZHR_FIO_ADRESS_DATA_SRV>/Adresses'}" showSeparators="None">
+					<CustomListItem>
+						<VBox class="sapUiTinyMarginBottom sapUiTinyMarginTop">
+							<Label text="{ZHR_FIO_ADRESS_DATA_SRV>AdressTxt}" design="Bold"/>
+							<Text text="{ZHR_FIO_ADRESS_DATA_SRV>AdressVal}"/>
+						</VBox>
+					</CustomListItem>
+				</List>
+			</Panel>
+			<!-- Члены семьи -->
+			<Panel expandable="true" class="sapUiTinyMarginTop sapUiTinyMarginBottom" expanded="false" width="auto" backgroundDesign="Solid">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Члены семьи"/>
+					</Toolbar>
+				</headerToolbar>
+				<List items="{path:'ZHR_FIO_FAMILY_DATA_SRV>/Familymems'}" showSeparators="None">
+					<CustomListItem>
+						<VBox>
+							<HBox>
+								<Label text="{ZHR_FIO_FAMILY_DATA_SRV>MemTxt}:" design="Bold" class="sapUiTinyMarginEnd sapUiTinyMarginBottom"/>
+								<Text text="{ZHR_FIO_FAMILY_DATA_SRV>MemVal}"/>
+							</HBox>
+						</VBox>
+					</CustomListItem>
+				</List>
+			</Panel>
+			<!-- Кадровые события -->
+			<Panel expandable="true" class="sapUiTinyMarginTop sapUiTinyMarginBottom" expanded="false" width="auto" backgroundDesign="Solid">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Кадровые события"/>
+					</Toolbar>
+				</headerToolbar>
+				<List items="{path:'ZHR_FIO_PA_DATA_SRV>/PAs'}" showSeparators="None">
+					<CustomListItem>
+						<VBox class="sapUiTinyMarginBottom sapUiTinyMarginTop">
+							<Label text="{ZHR_FIO_PA_DATA_SRV>RecTxt}" design="Bold"/>
+							<Text text="{ZHR_FIO_PA_DATA_SRV>RecCom}"/>
+						</VBox>
+					</CustomListItem>
+				</List>
+			</Panel>
+			<!-- Плановый опуск/Отсутствия -->
+			<Panel expandable="true" class="sapUiTinyMarginTop" expanded="false" width="auto" backgroundDesign="Solid">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Плановый отпуск / Отсутствия"/>
+					</Toolbar>
+				</headerToolbar>
+				<List items="{path:'ZHR_FIO_ABSENCE_DATA_SRV>/AbsenceS'}" showSeparators="None">
+					<CustomListItem>
+						<VBox class="sapUiTinyMarginBottom sapUiTinyMarginTop">
+							<Label text="{ZHR_FIO_ABSENCE_DATA_SRV>AbsTxt}" design="Bold"/>
+							<Text text="{ZHR_FIO_ABSENCE_DATA_SRV>AbsBeg} - {ZHR_FIO_ABSENCE_DATA_SRV>AbsEnd}, до отсутствия {ZHR_FIO_ABSENCE_DATA_SRV>AbsDays} дней"/>
+						</VBox>
+					</CustomListItem>
+				</List>
+			</Panel>
+		</content>
+		<buttons>
+			<Button text="Закрыть" press="closeDialog"/>
+		</buttons>
+	</Dialog>
+</mvc:View>

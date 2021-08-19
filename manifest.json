@@ -1,0 +1,190 @@
+{
+    "_version": "1.7.0",
+    "sap.app": {
+        "description": "Plugin launchpad. Профиль сотрудника.",
+        "id": "ru.rosneft.flp.zEmployeeProfile",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "",
+        "dataSources": {
+            "roleRemote": {
+                "uri": "/sap/opu/odata/sap/ZEDU_ABAP_EX_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZHR_FIO_ADRESS_DATA_SRV": {
+                "uri": "/sap/opu/odata/sap/ZHR_FIO_ADRESS_DATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZHR_FIO_ORGEH_DATA_SRV": {
+                "uri": "/sap/opu/odata/sap/ZHR_FIO_ORGEH_DATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZHR_FIO_CONTACT_DATA_SRV": {
+                "uri": "/sap/opu/odata/sap/ZHR_FIO_CONTACT_DATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZHR_FIO_FAMILY_DATA_SRV": {
+                "uri": "/sap/opu/odata/sap/ZHR_FIO_FAMILY_DATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZHR_FIO_PA_DATA_SRV": {
+                "uri": "/sap/opu/odata/sap/ZHR_FIO_PA_DATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZHR_FIO_ABSENCE_DATA_SRV": {
+                "uri": "/sap/opu/odata/sap/ZHR_FIO_ABSENCE_DATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "ru.rosneft.flp.zEmployeeProfile.view.Root",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {},
+                "sap.ushell": {},
+                "sap.collaboration": {},
+                "sap.ui.comp": {},
+                "sap.uxap": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "": {
+                "dataSource": "roleRemote",
+                "settings": {
+                    "useBatch": false,
+                    "metadataUrlParams": {
+                        "sap-documentation": "heading"
+                    }
+                }
+            },
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ru.rosneft.flp.zEmployeeProfile.i18n.i18n"
+                }
+            },
+            "dataModel": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "ZHR_FIO_ADRESS_DATA_SRV": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneTime",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "ZHR_FIO_ADRESS_DATA_SRV",
+                "preload": true
+            },
+            "ZHR_FIO_ORGEH_DATA_SRV": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneTime",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "ZHR_FIO_ORGEH_DATA_SRV",
+                "preload": true
+            },
+            "ZHR_FIO_CONTACT_DATA_SRV": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneTime",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "ZHR_FIO_CONTACT_DATA_SRV",
+                "preload": true
+            },
+            "ZHR_FIO_FAMILY_DATA_SRV": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneTime",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "ZHR_FIO_FAMILY_DATA_SRV",
+                "preload": true
+            },
+            "ZHR_FIO_PA_DATA_SRV": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneTime",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "ZHR_FIO_PA_DATA_SRV",
+                "preload": true
+            },
+            "ZHR_FIO_ABSENCE_DATA_SRV": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneTime",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "ZHR_FIO_ABSENCE_DATA_SRV",
+                "preload": true
+            }
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zhr_profile",
+        "_version": "1.1.0"
+    }
+}
